@@ -77,3 +77,10 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
 ;;; init.el ends here
+
+
+ ;;; rhtml-mode
+(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
