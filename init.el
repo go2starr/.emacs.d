@@ -78,9 +78,9 @@
 
 ;;; init.el ends here
 
-
- ;;; rhtml-mode
-(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
-(require 'rhtml-mode)
-(add-hook 'rhtml-mode-hook
-          (lambda () (rinari-launch)))
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0/")
+(require 'color-theme)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-hober)))
