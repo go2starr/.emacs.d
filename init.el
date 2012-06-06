@@ -76,11 +76,27 @@
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
-;;; init.el ends here
 
+;;; Add color themes
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0/")
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
      (color-theme-hober)))
+
+;;; Linux indentation
+(defun linux-c-mode ()
+ "C mode with adjusted defaults for use with the Linux kernel."
+ (interactive)
+ (c-mode)
+ (c-set-style "K&R")
+ (setq tab-width 8)
+ (setq indent-tabs-mode t)
+ (setq c-basic-offset 8))
+
+(setq auto-mode-alist (cons '(".*/linux.*/.*\\.[ch]$" . linux-c-mode)
+                            auto-mode-alist))
+
+
+;;; init.el ends here
