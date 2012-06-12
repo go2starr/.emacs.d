@@ -1,4 +1,4 @@
-elpa/archives/*
+elpa/archives/
 loaddefs.el*
 backups/*
 auto-save-list
